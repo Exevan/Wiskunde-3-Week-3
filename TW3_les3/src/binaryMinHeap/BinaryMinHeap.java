@@ -33,12 +33,6 @@ public class BinaryMinHeap<E extends Comparable<E>>{
 		}
 	}
 
-	private void exchange(int i, int j) {
-		E tmp = heap[i];
-		heap[i] = heap[j];
-		heap[j] = tmp;
-	}
-
 	private boolean smaller(E a, E b) {
 		return a.compareTo(b) < 0;
 	}
@@ -54,17 +48,16 @@ public class BinaryMinHeap<E extends Comparable<E>>{
 			return;
 		}
 		
-		if(size == heap.length)
+		if(heap[size-1] != null)
 			doubleCapacity();
 		heap[size] = x;
 
 		int i = size;
-		while((i != 0) && smaller(x, heap[Math.floorDiv((i-1),2)])) {
-			exchange(Math.floorDiv((i-1),2), i);
-			i = Math.floorDiv((i-1),2);
+		while((i != 0) && smaller(x, heap[(i-1)/2])) {		
+			heap[i] = heap[(i-1)/2];
+			i = (i-1)/2;
 		}
 		heap[i] = x;
 		size+=1;
 	}
-
 }
