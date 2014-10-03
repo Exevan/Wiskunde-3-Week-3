@@ -1,8 +1,11 @@
 Oefening 1
-a) [F, B, G, A, D, null, I, null, null, C, E H, null]
+a) [F, B, G, A, D, null, I, null, null, C, E, null, null, H, null]
 b) [3, 2, 5 ,1 ,4 null, null]
 
 Oefening 2
 a) 127
 b) 72
 c) ja, exact 1 op positie 999
+
+Oefening 5
+a) de mystery methode verwijdert de meest linkse node uit de boom

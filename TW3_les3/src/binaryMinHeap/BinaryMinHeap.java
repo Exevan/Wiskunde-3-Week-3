@@ -5,6 +5,7 @@ public class BinaryMinHeap<E extends Comparable<E>>{
 	private E[] heap;
 	private int size;
 
+	@SuppressWarnings("unchecked")
 	public BinaryMinHeap(int capacity){
 		heap = (E[]) new Comparable[capacity];
 		size = 0;
@@ -52,15 +53,17 @@ public class BinaryMinHeap<E extends Comparable<E>>{
 			size+=1;
 			return;
 		}
+		
 		if(size == heap.length)
 			doubleCapacity();
 		heap[size] = x;
 
 		int i = size;
-		while((i != 0) && smaller(heap[i], heap[Math.floorDiv((i-1),2)])) {
+		while((i != 0) && smaller(x, heap[Math.floorDiv((i-1),2)])) {
 			exchange(Math.floorDiv((i-1),2), i);
 			i = Math.floorDiv((i-1),2);
 		}
+		heap[i] = x;
 		size+=1;
 	}
 
