@@ -8,6 +8,8 @@ public class BinaryMinHeapDriver {
 			heap.insert(i);
 			System.out.println(heap);
 		}
+		heap.getMin();
+		System.out.println(heap);
 	}
 	
 }
