@@ -89,4 +89,20 @@ public class BinarySearchTree{
 			mystery ( node , node.right );
 		}
 	}
+
+	public void deleteLeft() {
+		groot = deleteLeft(groot);
+	}
+
+	private BinaryNode deleteLeft(BinaryNode node) {
+		if(node.left == null && node.right == null)
+			return null;
+		else {
+			if(node.left != null)
+				node.left = deleteLeft(node.left);
+			else
+				node.right = deleteLeft(node.right);
+			return node;
+		}
+	}
 }
